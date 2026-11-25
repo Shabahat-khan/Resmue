@@ -18,6 +18,10 @@ npm test -- --watch=false
 
 The production build is written to `dist/`. Tests use Vitest.
 
+## Deploy to GitHub Pages
+
+The [Pages workflow](./.github/workflows/deploy.yml) runs on pushes to `master`, builds with the `/Resmue/` project-site base path, and publishes `dist/resume/browser`. In GitHub, set **Settings → Pages → Source** to **GitHub Actions**. The deployed site is `https://shabahat-khan.github.io/Resmue/`.
+
 ## Page structure
 
 The page is assembled in [app.html](./src/app/app.html), in this order. Component imports are maintained in [app.ts](./src/app/app.ts).
