@@ -144,6 +144,9 @@ describe('App', () => {
     expect(contact?.querySelector('a[href^="tel:"]')?.textContent).toContain('+91-9284420615');
     expect(contact?.querySelector('a[href*="github.com"]')?.textContent).toContain('GitHub');
     expect(contact?.querySelector('.contact-photo')?.getAttribute('alt')).toBe('Shabahat Khan');
+    expect(contact?.querySelector('.contact-photo')?.getAttribute('src')).toBe(
+      'shabahat-contact.png',
+    );
     const backToTop = contact?.querySelector<HTMLAnchorElement>('.back-to-top');
 
     expect(backToTop?.getAttribute('href')).toBe('#home');
