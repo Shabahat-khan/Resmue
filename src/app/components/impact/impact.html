@@ -1,0 +1,16 @@
+<section class="section-space impact-section" id="achievements">
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-kicker">Achievements</p>
+      <h2>Impact in numbers</h2>
+    </div>
+    <div class="impact-grid">
+      @for (highlight of highlights; track highlight.label) {
+        <article class="impact-card">
+          <strong>{{ highlight.value }}</strong>
+          <span>{{ highlight.label }}</span>
+        </article>
+      }
+    </div>
+  </div>
+</section>

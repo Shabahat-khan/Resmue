@@ -1,0 +1,57 @@
+<section class="hero section-space" id="home">
+  <div class="container hero-layout">
+    <div class="hero-copy">
+      <h1>
+        Hi, I'm<br />
+        <span>{{ portfolio.name }} <span class="wave-hand" aria-hidden="true">👋</span></span>
+      </h1>
+      <p class="role">{{ portfolio.role }}</p>
+      <p class="intro">
+        I build dependable Java services and integrations that make complex business systems work
+        better.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#projects">View selected work <span aria-hidden="true">↓</span></a>
+        <a class="button button-secondary" href="mailto:{{ portfolio.email }}">Contact me</a>
+      </div>
+      <div class="quick-links" aria-label="Social and contact links">
+        <a [href]="portfolio.github" target="_blank" rel="noopener noreferrer">
+          <span class="social-mark" aria-hidden="true">GH</span>
+          <span>GitHub</span>
+        </a>
+        <a [href]="'mailto:' + portfolio.email">
+          <span class="social-mark" aria-hidden="true">@</span>
+          <span>Email</span>
+        </a>
+        <a [href]="'tel:' + portfolio.phone">
+          <span class="social-mark" aria-hidden="true">TEL</span>
+          <span>Phone</span>
+        </a>
+      </div>
+    </div>
+    <aside class="profile-card" aria-label="Professional highlights">
+      <div class="profile-card-top">
+        <span class="profile-orbit" aria-hidden="true"><span>SK</span></span>
+        <span class="availability">JAVA · SPRING BOOT</span>
+      </div>
+      <p class="card-label">MY APPROACH</p>
+      <h2>Scalable systems.<br />Thoughtful engineering.</h2>
+      <div class="stack-chips" aria-label="Technology highlights">
+        <span class="stack-chip">
+          <span class="stack-icon" aria-hidden="true">&lt;/&gt;</span>
+          Spring Boot
+        </span>
+        <span class="stack-chip">
+          <span class="stack-icon" aria-hidden="true">API</span>
+          REST APIs
+        </span>
+        <span class="stack-chip">
+          <span class="stack-icon" aria-hidden="true">DB</span>
+          SQL Server
+        </span>
+      </div>
+      <div class="card-rule"></div>
+      <p class="card-foot">{{ portfolio.location }} <span aria-hidden="true">↗</span></p>
+    </aside>
+  </div>
+</section>

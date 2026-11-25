@@ -1,0 +1,146 @@
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: block;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--header-background);
+  backdrop-filter: blur(16px);
+}
+
+.header-content,
+nav,
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  min-height: 76px;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  gap: 5px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand-code {
+  color: var(--accent);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.brand-name {
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  transform: rotate(-2deg);
+  transition: color 160ms ease;
+}
+
+.brand:hover .brand-name,
+.brand:hover .brand-code {
+  color: var(--accent);
+}
+
+.brand:hover .brand-code:first-child {
+  transform: translateX(-2px);
+}
+
+.brand:hover .brand-code:last-child {
+  transform: translateX(2px);
+}
+
+nav {
+  gap: clamp(14px, 2.4vw, 30px);
+}
+
+nav a {
+  position: relative;
+  color: var(--muted);
+  font-size: 0.93rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+nav a:not(.nav-contact)::after {
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--accent);
+  content: "";
+  transition: transform 160ms ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--accent);
+}
+
+nav a:not(.nav-contact):hover::after,
+nav a:not(.nav-contact):focus-visible::after {
+  transform: scaleX(1);
+}
+
+nav .nav-contact {
+  padding: 10px 15px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+nav .nav-contact:hover,
+nav .nav-contact:focus-visible {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+}
+
+.theme-toggle {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.15rem;
+  transition: color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(12deg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .header-content {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    padding-block: 14px;
+  }
+
+  nav {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+}

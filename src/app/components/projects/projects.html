@@ -1,0 +1,29 @@
+<section class="section-space" id="projects">
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-kicker">Projects</p>
+      <h2>Selected professional work</h2>
+      <p class="section-intro">
+        A few highlights from my professional experience. The details here are based on my resume.
+      </p>
+    </div>
+    <div class="project-grid">
+      @for (project of projects; track project.title) {
+        <article class="project-card">
+          <div class="project-topline">
+            <span class="project-index">0{{ $index + 1 }}</span>
+            <span class="project-category">{{ project.category }}</span>
+          </div>
+          <h3>{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          <p class="project-impact">{{ project.impact }}</p>
+          <ul class="technology-list" aria-label="Technologies used">
+            @for (technology of project.technologies; track technology) {
+              <li>{{ technology }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

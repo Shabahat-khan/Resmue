@@ -1,0 +1,37 @@
+<section class="section-space" id="education">
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-kicker">Education</p>
+      <h2>Academic foundation</h2>
+      <p class="section-intro">
+        The qualifications that built my foundation in computer engineering.
+      </p>
+    </div>
+    <div class="education-grid">
+      @for (item of qualifications; track item.qualification; let index = $index) {
+        <article class="education-card">
+          <div class="education-card-head">
+            <span class="education-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" focusable="false">
+                <path d="m4 18 20-10 20 10-20 10L4 18Z" />
+                <path d="M12 22v11c7 6 17 6 24 0V22M44 18v13" />
+                <circle cx="44" cy="34" r="2" />
+              </svg>
+            </span>
+            <span class="education-index" aria-hidden="true">0{{ index + 1 }}</span>
+            <p class="education-dates">{{ item.dates }}</p>
+          </div>
+          <div class="education-content">
+            <h3>{{ item.qualification }}</h3>
+            <p class="field">{{ item.field }}</p>
+            <p class="institution">{{ item.institution }}</p>
+            <p class="result">
+              <span>Academic result</span>
+              <strong>{{ item.result }}</strong>
+            </p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

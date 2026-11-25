@@ -1,0 +1,146 @@
+:host {
+  display: block;
+  border-block: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.section-heading {
+  margin-bottom: 32px;
+}
+
+.section-heading h2 {
+  margin: 10px 0 0;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  letter-spacing: -0.05em;
+}
+
+.section-kicker {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.experience-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--background);
+  box-shadow: 0 18px 48px rgb(0 0 0 / 12%);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
+}
+
+.company-banner {
+  position: relative;
+  display: grid;
+  min-height: 166px;
+  place-items: start center;
+  padding: 31px 20px;
+  background: linear-gradient(135deg, #315db5, #7255c9);
+  color: #fff;
+  text-align: center;
+}
+
+.experience-card--alternate .company-banner {
+  background: linear-gradient(135deg, #196d78, #4263b8);
+}
+
+.company-banner p {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.company-mark {
+  position: absolute;
+  bottom: -43px;
+  left: 50%;
+  display: grid;
+  width: 94px;
+  height: 94px;
+  place-items: center;
+  transform: translateX(-50%);
+  border: 6px solid var(--background);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #8171e7, #5142bb);
+  box-shadow: 0 8px 22px rgb(0 0 0 / 25%);
+  color: #fff;
+  font-size: 1.55rem;
+  font-weight: 750;
+  letter-spacing: -0.05em;
+}
+
+.experience-card--alternate .company-mark {
+  background: linear-gradient(145deg, #4f97a1, #3e5fb0);
+}
+
+.experience-content {
+  padding: 54px clamp(20px, 3vw, 30px) 28px;
+  text-align: center;
+}
+
+.experience-content h3 {
+  margin: 0;
+  font-size: clamp(1.1rem, 2.3vw, 1.38rem);
+  letter-spacing: -0.035em;
+}
+
+.role-dates {
+  margin: 9px 0 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.role-location {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.role-highlights {
+  display: grid;
+  gap: 11px;
+  margin: 22px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.65;
+  text-align: left;
+}
+
+.role-highlights li::marker {
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .company-banner {
+    min-height: 144px;
+  }
+
+  .experience-content {
+    padding-inline: 20px;
+  }
+}

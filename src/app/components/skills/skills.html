@@ -1,0 +1,218 @@
+<section class="section-space" id="skills">
+  <div class="container">
+    <div class="proficiency-layout">
+      <div class="proficiency-copy">
+        <p class="section-kicker">Skills</p>
+        <h2>Proficiency</h2>
+        <p class="proficiency-intro">
+          The areas I focus on most, shaped by hands-on work across enterprise applications and
+          integrations.
+        </p>
+        <div class="proficiency-list">
+          @for (area of proficiencyAreas; track area.title) {
+            <article class="proficiency-item">
+              <div class="proficiency-meta">
+                <h3>{{ area.title }}</h3>
+                <p>{{ area.skills }}</p>
+              </div>
+              <div class="proficiency-track" aria-hidden="true">
+                <span
+                  class="proficiency-fill"
+                  [style.--level]="area.level"
+                  [style.--delay]="area.delay"
+                ></span>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+
+      <div class="proficiency-art">
+        <svg
+          viewBox="0 0 620 460"
+          role="img"
+          aria-labelledby="proficiency-art-title proficiency-art-description"
+        >
+          <title id="proficiency-art-title">A robotic arm writing code</title>
+          <desc id="proficiency-art-description">
+            An animated robotic arm works at a code editor, representing backend and software
+            development.
+          </desc>
+          <defs>
+            <linearGradient id="editor-glow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#a78bfa" stop-opacity=".2" />
+              <stop offset="1" stop-color="#6f5cff" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <circle class="art-orbit" cx="323" cy="228" r="205" />
+          <g class="editor-window">
+            <rect x="92" y="46" width="424" height="292" rx="20" fill="var(--surface)" />
+            <rect x="106" y="60" width="396" height="264" rx="12" fill="#10131d" />
+            <path d="M118 60h372a12 12 0 0 1 12 12v30H106V72a12 12 0 0 1 12-12Z" fill="#202332" />
+            <circle cx="126" cy="81" r="4" fill="#ff7a91" />
+            <circle cx="142" cy="81" r="4" fill="#ffc66d" />
+            <circle cx="158" cy="81" r="4" fill="#85d6a5" />
+            <text x="180" y="85" fill="#b9bbcc" font-size="12" font-family="monospace">
+              service.java
+            </text>
+            <rect x="106" y="102" width="396" height="222" fill="url(#editor-glow)" />
+            <text x="133" y="145" fill="#a78bfa" font-size="13" font-family="monospace">
+              @RestController
+            </text>
+            <text x="133" y="181" fill="#f3f2f8" font-size="13" font-family="monospace">
+              public class
+            </text>
+            <text x="241" y="181" fill="#8bd5ca" font-size="13" font-family="monospace">
+              ReliableService
+            </text>
+            <text x="152" y="217" fill="#c1c3d2" font-size="13" font-family="monospace">
+              @GetMapping("/api/data")
+            </text>
+            <text x="152" y="253" fill="#c1c3d2" font-size="13" font-family="monospace">
+              return response;
+            </text>
+            <rect class="code-cursor" x="278" y="239" width="2" height="17" rx="1" fill="#a78bfa" />
+          </g>
+
+          <g class="robot-arm">
+            <path d="m457 337-36-85" fill="none" stroke="#656b7d" stroke-linecap="round" stroke-width="25" />
+            <path d="M457 337v24" fill="none" stroke="#858b9d" stroke-linecap="round" stroke-width="19" />
+            <circle cx="457" cy="337" r="20" fill="#858b9d" />
+            <g class="robot-forearm">
+              <path d="m421 252-117-25" fill="none" stroke="#858b9d" stroke-linecap="round" stroke-width="22" />
+              <circle cx="421" cy="252" r="17" fill="#a0a5b4" />
+              <circle cx="304" cy="227" r="13" fill="#555b6d" />
+              <path d="m298 224-38-10 5 17 35 1" fill="#d6d5e0" stroke="#303442" stroke-linejoin="round" stroke-width="4" />
+              <path d="m265 231-7 9 10-4" fill="#a78bfa" />
+              <circle class="writing-spark" cx="259" cy="238" r="4" fill="#a78bfa" />
+            </g>
+            <path d="M355 381h202" fill="none" stroke="#222633" stroke-linecap="round" stroke-width="20" />
+            <path d="M330 400h253" fill="none" stroke="#151821" stroke-linecap="round" stroke-width="19" />
+          </g>
+
+          <g class="art-badge" transform="translate(52 300)">
+            <rect width="100" height="43" rx="21.5" fill="var(--surface)" stroke="var(--line)" />
+            <text x="50" y="27" fill="var(--accent)" font-size="13" font-weight="700" text-anchor="middle">
+              JAVA · API
+            </text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="skills-library">
+      <div class="section-heading">
+        <h3>My technical toolkit</h3>
+        <p>The technologies I use to design, build, and support dependable applications.</p>
+      </div>
+      <div class="skill-grid">
+        @for (group of skillGroups; track group.title) {
+          <article class="skill-card">
+            <h4>{{ group.title }}</h4>
+            <ul>
+              @for (skill of group.items; track skill) {
+                <li class="skill-item">
+                  <svg class="skill-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                    @switch (skill.icon) {
+                      @case ('coffee') {
+                        <path d="M12 17h19v8a8 8 0 0 1-8 8h-3a8 8 0 0 1-8-8v-8Z" />
+                        <path d="M31 19h2a5 5 0 0 1 0 10h-4M17 11c0-2 2-2 2-4m6 4c0-2 2-2 2-4M9 39h28" />
+                      }
+                      @case ('leaf') {
+                        <path d="M38 10C24 10 12 13 10 24c-1 7 4 12 11 11 10-2 13-14 17-25Z" />
+                        <path d="M12 36c6-8 12-13 22-21" />
+                      }
+                      @case ('layers') {
+                        <path d="m24 7 17 9-17 9-17-9 17-9Z" />
+                        <path d="m7 24 17 9 17-9M7 32l17 9 17-9" />
+                      }
+                      @case ('code') {
+                        <path d="m17 14-9 10 9 10m14-20 9 10-9 10m-3-24-6 28" />
+                      }
+                      @case ('network') {
+                        <path d="M13 24h22M17 16l12 16m2-18-14 20" />
+                        <circle cx="11" cy="24" r="4" />
+                        <circle cx="36" cy="24" r="4" />
+                        <circle cx="16" cy="14" r="4" />
+                        <circle cx="32" cy="14" r="4" />
+                        <circle cx="16" cy="34" r="4" />
+                        <circle cx="32" cy="34" r="4" />
+                      }
+                      @case ('document') {
+                        <path d="M13 6h15l8 8v28H13zM28 6v9h8M19 23h11m-11 6h11m-11 6h7" />
+                      }
+                      @case ('browser') {
+                        <rect x="6" y="9" width="36" height="30" rx="4" />
+                        <path d="M6 17h36M12 13h.1m5 0h.1m5 0h.1" />
+                      }
+                      @case ('shield') {
+                        <path d="m24 5 16 6v11c0 10-6 17-16 21C14 39 8 32 8 22V11l16-6Z" />
+                        <path d="m17 24 5 5 10-11" />
+                      }
+                      @case ('database') {
+                        <ellipse cx="24" cy="11" rx="15" ry="6" />
+                        <path d="M9 11v25c0 3 7 6 15 6s15-3 15-6V11M9 20c0 3 7 6 15 6s15-3 15-6m-30 8c0 3 7 6 15 6s15-3 15-6" />
+                      }
+                      @case ('performance') {
+                        <path d="M8 34a18 18 0 1 1 32 0M24 24l10-9M12 34h24" />
+                        <circle cx="24" cy="24" r="3" />
+                      }
+                      @case ('cloud') {
+                        <path d="M15 35h20a8 8 0 0 0 1-16 13 13 0 0 0-25-2 9 9 0 0 0 4 18Z" />
+                        <path d="M24 25v14m-5-5 5 5 5-5" />
+                      }
+                      @case ('container') {
+                        <path d="m24 6 17 9v19l-17 9-17-9V15l17-9Z" />
+                        <path d="m7 15 17 9 17-9M24 24v19m-8-23v8m8-5v8m8-12v8" />
+                      }
+                      @case ('bucket') {
+                        <path d="M9 14h30l-3 26H12L9 14Zm-2-5h34v5H7zM16 20v14m8-14v14m8-14v14" />
+                      }
+                      @case ('pipeline') {
+                        <path d="M9 12h30M9 24h30M9 36h30" />
+                        <circle cx="16" cy="12" r="5" />
+                        <circle cx="31" cy="24" r="5" />
+                        <circle cx="20" cy="36" r="5" />
+                      }
+                      @case ('branch') {
+                        <path d="M14 10v19a9 9 0 0 0 9 9h11m-20-9a9 9 0 0 1 9-9h11" />
+                        <circle cx="14" cy="9" r="4" />
+                        <circle cx="14" cy="38" r="4" />
+                        <circle cx="35" cy="20" r="4" />
+                        <circle cx="35" cy="38" r="4" />
+                      }
+                      @case ('repository') {
+                        <path d="M10 8h23a5 5 0 0 1 5 5v27H15a5 5 0 0 1-5-5V8Z" />
+                        <path d="M10 34a5 5 0 0 1 5-5h23M18 16h12m-12 6h9" />
+                      }
+                      @case ('send') {
+                        <path d="m5 22 37-16-12 37-7-16-18-5Z" />
+                        <path d="m23 27 10-11" />
+                      }
+                      @case ('api') {
+                        <circle cx="12" cy="24" r="5" />
+                        <circle cx="36" cy="12" r="5" />
+                        <circle cx="36" cy="36" r="5" />
+                        <path d="m17 22 14-8m-14 12 14 8" />
+                      }
+                      @case ('stream') {
+                        <path d="M8 16h22a7 7 0 0 1 0 14H18a5 5 0 0 0 0 10h22M8 9v31" />
+                        <circle cx="8" cy="9" r="3" />
+                        <circle cx="40" cy="40" r="3" />
+                      }
+                      @case ('ide') {
+                        <rect x="5" y="7" width="38" height="34" rx="4" />
+                        <path d="M5 15h38m-27 9-5 4 5 4m8-8 5 4-5 4m8 3h7" />
+                      }
+                    }
+                  </svg>
+                  <span class="skill-name">{{ skill.name }}</span>
+                </li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<header class="site-header">
+  <div class="container header-content">
+    <a class="brand" href="#home" aria-label="Shabahat Khan, home">
+      <span class="brand-code" aria-hidden="true">&lt;</span>
+      <span class="brand-name">{{ portfolio.name }}</span>
+      <span class="brand-code" aria-hidden="true">/&gt;</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#skills">Proficiency</a>
+      <a href="#experience">Work Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#education">Education</a>
+      <a class="nav-contact" href="#contact">Contact Me</a>
+      <button
+        class="theme-toggle"
+        type="button"
+        [attr.aria-label]="lightMode ? 'Switch to dark theme' : 'Switch to light theme'"
+        [attr.aria-pressed]="lightMode"
+        (click)="toggleTheme()"
+      >
+        <span aria-hidden="true">{{ lightMode ? '☾' : '☼' }}</span>
+      </button>
+    </nav>
+  </div>
+</header>

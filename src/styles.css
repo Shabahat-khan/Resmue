@@ -1,1 +1,291 @@
-/* You can add global styles to this file, and also import other style files */
+@import "@fontsource-variable/montserrat/wght.css";
+
+:root {
+  color-scheme: light;
+  --background: #f7f7fb;
+  --surface: #ffffff;
+  --text: #252238;
+  --muted: #626174;
+  --accent: #7057df;
+  --line: rgb(62 52 96 / 16%);
+  --header-background: rgb(247 247 251 / 92%);
+  --deep-surface: #f0eef8;
+  --hero-card-start: #efebff;
+  --hero-card-end: #ffffff;
+  font-family: "Montserrat Variable", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+:root.theme-dark {
+  color-scheme: dark;
+  --background: #11131d;
+  --surface: #191c29;
+  --text: #f3f2f8;
+  --muted: #b0b0c1;
+  --accent: #a78bfa;
+  --line: rgb(202 195 225 / 16%);
+  --header-background: rgb(17 19 29 / 92%);
+  --deep-surface: #0c1927;
+  --hero-card-start: #14283a;
+  --hero-card-end: #0d1a29;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.container {
+  width: min(1340px, calc(100% - 44px));
+  margin-inline: auto;
+}
+
+.section-space {
+  padding-block: clamp(70px, 10vw, 118px);
+}
+
+.back-to-top {
+  position: fixed;
+  right: clamp(18px, 3vw, 32px);
+  bottom: clamp(18px, 3vh, 30px);
+  z-index: 20;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  transform: translateY(14px) scale(0.9);
+  border: 1px solid rgb(255 255 255 / 28%);
+  border-radius: 17px;
+  background: linear-gradient(145deg, #823cff, #5b19c8);
+  box-shadow:
+    0 10px 24px rgb(91 25 200 / 32%),
+    inset 0 1px 0 rgb(255 255 255 / 22%);
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  text-decoration: none;
+  visibility: hidden;
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    visibility 200ms ease;
+}
+
+.back-to-top.is-visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.back-to-top svg {
+  width: 36px;
+  height: 36px;
+  fill: currentColor;
+  transition: transform 180ms ease;
+}
+
+.back-to-top .rocket-body {
+  fill: #fff;
+}
+
+.back-to-top .rocket-fin {
+  fill: #d7c8ff;
+}
+
+.back-to-top .rocket-window {
+  fill: #38bdf8;
+  stroke: #fff;
+  stroke-width: 1.2;
+}
+
+.back-to-top .rocket-flame {
+  fill: #fb923c;
+  transform-box: fill-box;
+  transform-origin: center top;
+}
+
+.back-to-top.is-visible:hover .rocket-flame,
+.back-to-top.is-visible:focus-visible .rocket-flame {
+  animation: rocket-burn 180ms ease-in-out infinite alternate;
+}
+
+.back-to-top.is-visible:hover,
+.back-to-top.is-visible:focus-visible {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow:
+    0 14px 30px rgb(91 25 200 / 42%),
+    inset 0 1px 0 rgb(255 255 255 / 28%);
+  color: #fff;
+}
+
+.back-to-top.is-visible:hover svg,
+.back-to-top.is-visible:focus-visible svg {
+  transform: translateY(-2px);
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 45%, white);
+  outline-offset: 4px;
+}
+
+@keyframes rocket-burn {
+  from {
+    transform: scaleY(0.82);
+  }
+
+  to {
+    transform: scaleY(1.12);
+  }
+}
+
+.profile-orbit span {
+  animation: monogram-pulse 4s ease-in-out infinite;
+}
+
+.stack-chip {
+  animation: chip-float 4.5s ease-in-out infinite;
+}
+
+.stack-chip:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.stack-chip:nth-child(3) {
+  animation-delay: -2s;
+}
+
+.wave-hand {
+  display: inline-block;
+  margin-inline-start: 0.06em;
+  font-size: 0.72em;
+  line-height: 1;
+  vertical-align: 0.05em;
+  transform-origin: 70% 70%;
+  animation: hand-wave 3.2s ease-in-out infinite;
+}
+
+@media (max-width: 760px) {
+  .hero h1 > span {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero h1 {
+    font-size: clamp(1.9rem, 9.5vw, 2.5rem);
+  }
+}
+
+@keyframes chip-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes monogram-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent);
+  }
+
+  50% {
+    box-shadow: 0 0 18px 2px color-mix(in srgb, var(--accent) 16%, transparent);
+  }
+}
+
+@keyframes hand-wave {
+  0%,
+  66%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  71%,
+  83% {
+    transform: rotate(16deg);
+  }
+
+  77%,
+  89% {
+    transform: rotate(-10deg);
+  }
+
+  95% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes proficiency-reveal {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(var(--level));
+  }
+}
+
+@keyframes robot-write {
+  0%,
+  100% {
+    transform: rotate(-1.5deg);
+  }
+
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes writing-spark {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.75);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
